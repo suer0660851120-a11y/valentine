@@ -1,0 +1,109 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BASE */
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+  color: #fff;
+}
+
+/* CENTER LAYOUT */
+.center {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* TEXT */
+.center h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  margin-bottom: 1rem;
+}
+
+.center p {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  margin-bottom: 2rem;
+  max-width: 600px;
+}
+
+/* BUTTON */
+.btn {
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  background: #ff5e7e;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: #ff2e63;
+  transform: scale(1.05);
+}
+
+/* GALLERY PAGE */
+.gallery-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem 1rem;
+}
+
+.gallery-title {
+  text-align: center;
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 2rem;
+}
+
+/* GRID */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+/* IMAGE BOX */
+.photo {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+/* IMAGE STYLE (เผื่อใส่รูปจริง) */
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+.video-box video {
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+/* ปรับ aspect ratio ให้สวย */
+.video-box {
+  aspect-ratio: 1 / 1;
+}
