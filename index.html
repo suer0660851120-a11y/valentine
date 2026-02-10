@@ -93,7 +93,8 @@ function checkPIN() {
     const error = document.getElementById("error");
 
     if (inputPIN === correctPIN) {
-        window.location.href = "login.html"; // หน้าแกลเลอรี่เดิม
+        localStorage.setItem("unlocked", "true"); // จำว่าปลดล็อกแล้ว
+        window.location.href = "gallery.html";   // ไปแกลเลอรี่
     } else {
         error.textContent = "รหัสไม่ถูกต้อง 💔";
         inputPIN = "";
