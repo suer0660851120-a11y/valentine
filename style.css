@@ -298,3 +298,23 @@ body {
     margin-top: 10px;
     color: #fff;
 }
+
+
+
+/* พื้นหลังหัวใจ */
+#heartCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* เนื้อหา gallery ต้องอยู่เหนือ canvas */
+.gallery-container,
+h1 {
+    position: relative;
+    z-index: 1;
+}
