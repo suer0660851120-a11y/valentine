@@ -7,6 +7,17 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <audio id="bgm" autoplay loop>
+  <source src="love.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  document.addEventListener("click", () => {
+    const music = document.getElementById("bgm");
+    music.play();
+  }, { once: true });
+</script>
+
 <canvas id="heartCanvas"></canvas>
 
   <div class="gallery-container">
