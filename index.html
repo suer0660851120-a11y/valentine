@@ -11,7 +11,7 @@
 
 <div class="lock-card">
 
-    <!-- หัวข้อ -->
+    
     <h2>VALENTINE FOR JANJIRA</h2>
     <p class="sub">กรอกรหัสงับ😘 </p>
 
@@ -39,29 +39,25 @@
 
         <button onclick="pressKey(0)">0</button>
 
-        <!-- ลบ -->
+        
         <button onclick="removeKey()">⌫</button>
     </div>
 
-    <!-- ปุ่มยืนยัน -->
+    
     <button class="confirm" onclick="checkPIN()">ยืนยัน</button>
 
     <p id="error"></p>
 </div>
 
 <script>
-/* =========================
-   ตั้งค่ารหัสผ่าน
-   ========================= */
+
 const correctPIN = "250898";
 let inputPIN = "";
 
-/* จุดแสดงผล */
+
 const dots = document.querySelectorAll(".dots span");
 
-/* =========================
-   กดตัวเลข
-   ========================= */
+
 function pressKey(num) {
     if (inputPIN.length < 6) {
         inputPIN += num;
@@ -69,32 +65,26 @@ function pressKey(num) {
     }
 }
 
-/* =========================
-   ลบตัวล่าสุด
-   ========================= */
+
 function removeKey() {
     inputPIN = inputPIN.slice(0, -1);
     updateDots();
 }
 
-/* =========================
-   อัปเดตจุด
-   ========================= */
+
 function updateDots() {
     dots.forEach((dot, index) => {
         dot.classList.toggle("filled", index < inputPIN.length);
     });
 }
 
-/* =========================
-   ตรวจรหัส
-   ========================= */
+
 function checkPIN() {
     const error = document.getElementById("error");
 
     if (inputPIN === correctPIN) {
-        localStorage.setItem("unlocked", "true"); // จำว่าปลดล็อกแล้ว
-        window.location.href = "gallery.html";   // ไปแกลเลอรี่
+        localStorage.setItem("unlocked", "true"); 
+        window.location.href = "gallery.html";  
     } else {
         error.textContent = "รหัสไม่ถูกต้อง 💔";
         inputPIN = "";
