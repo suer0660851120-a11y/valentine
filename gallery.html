@@ -7,17 +7,17 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <audio id="bgm" autoplay loop>
-  <source src="love.mp3" type="audio/mpeg">
+  <audio id="bgm" loop>
+  <source src="gg.mp3" type="audio/mpeg">
 </audio>
 
 <script>
   document.addEventListener("click", () => {
     const music = document.getElementById("bgm");
+    music.volume = 0.5; // ปรับเสียงให้นุ่ม
     music.play();
   }, { once: true });
 </script>
-
 <canvas id="heartCanvas"></canvas>
 
   <div class="gallery-container">
