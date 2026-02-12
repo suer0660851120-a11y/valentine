@@ -196,14 +196,15 @@ body {
   overflow: hidden;
 }
 
-/* รูปภาพ */
-.photo img,
-.video-box video {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  background: #000; /* กันพื้นหลังโล่ง */
+.photo {
+  aspect-ratio: auto;
 }
+
+ .photo img {
+  width: 100%;
+  height: auto;
+}
+
 
 
 /* วิดีโอ */
