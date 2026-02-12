@@ -343,4 +343,29 @@ body.login-page::before {
   transform: scale(1.1);
 }
 
-/* =====*
+
+
+
+
+.confirm {
+  position: relative;
+  overflow: hidden;
+}
+
+.confirm::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.4),
+    transparent
+  );
+  transform: translateX(-100%);
+  transition: 0.6s;
+}
+
+.confirm:hover::before {
+  transform: translateX(100%);
+}
