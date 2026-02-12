@@ -197,12 +197,14 @@ body {
 }
 
 /* รูปภาพ */
-.photo img {
+.photo img,
+.video-box video {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  border-radius: 15px;
+  object-fit: contain;
+  background: #000; /* กันพื้นหลังโล่ง */
 }
+
 
 /* วิดีโอ */
 .video-box {
