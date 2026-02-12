@@ -168,22 +168,23 @@ body {
   transform: translateY(-8px);
   box-shadow: 0 15px 40px rgba(0,0,0,0.25);
 }
+.photo {
+  aspect-ratio: 4 / 5;   /* สัดส่วนคงที่ */
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  overflow: hidden;
+  padding: 10px;
+}
 
-/* ===== IMAGE STYLE ===== */
 .photo img {
-  width: 100%;
-  height: auto;           /* สำคัญมาก ไม่ให้ยืด */
-  display: block;
-  border-radius: 18px;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;   /* ไม่ตัด ไม่ยืด */
 }
 
-/* ===== VIDEO STYLE ===== */
-.video-box video {
-  width: 100%;
-  height: auto;           /* สำคัญ ไม่ให้ยืด */
-  display: block;
-  border-radius: 18px;
-}
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
