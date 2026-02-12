@@ -13,10 +13,35 @@ html {
 }
 
 body {
-  min-height: 100vh;
-  background: linear-gradient(135deg, #ff9ecb, #ff6fa5);
-  color: #fff;
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+  color: white;
 }
+
+/* ❌ ห้ามมี display:flex ใน body */
+
+/* Container */
+.gallery-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
+}
+
+/* Title */
+.gallery-title {
+  text-align: center;
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 2rem;
+}
+
+/* Grid */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+}
+
 
 
 /* =====================================
@@ -131,28 +156,6 @@ body {
 }
 
 
-/* =====================================
-   GALLERY PAGE
-===================================== */
-.gallery-container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 1rem 1.5rem 2.5rem;
-}
-
-
-.gallery-title {
-  text-align: center;
-  font-size: clamp(2rem, 4vw, 3rem);
-  margin-bottom: 2.5rem;
-}
-
-/* GRID */
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.8rem;
-}
 
 /* CARD */
 .photo,
