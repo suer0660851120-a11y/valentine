@@ -1,3 +1,6 @@
+/* =====================================
+   GLOBAL RESET
+===================================== */
 * {
   margin: 0;
   padding: 0;
@@ -5,28 +8,39 @@
   font-family: 'Segoe UI', sans-serif;
 }
 
-/* ---------- INTRO PAGE ---------- */
+html {
+  font-size: 16px;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ff9ecb, #ff6fa5);
+  color: #fff;
+}
+
+
+/* =====================================
+   INTRO PAGE
+===================================== */
 .intro-page {
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
 }
 
 .intro {
   text-align: center;
-  color: white;
 }
 
 .intro h1 {
-  font-size: 3rem;
+  font-size: clamp(2rem, 5vw, 3.5rem);
   margin-bottom: 20px;
 }
 
 .btn {
   padding: 12px 30px;
-  background: white;
+  background: #fff;
   color: #ff4d88;
   text-decoration: none;
   border-radius: 30px;
@@ -38,18 +52,20 @@
   transform: scale(1.1);
 }
 
-/* ---------- LOGIN PAGE ---------- */
+
+/* =====================================
+   LOGIN PAGE
+===================================== */
 .login-page {
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
 }
 
 .lock-card {
-  background: rgba(255,255,255,0.3);
-  backdrop-filter: blur(10px);
+  background: rgba(255,255,255,0.25);
+  backdrop-filter: blur(12px);
   border-radius: 30px;
   padding: 30px 25px;
   width: 100%;
@@ -115,88 +131,80 @@
 }
 
 
-
-/* ===== RESET ===== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Segoe UI", sans-serif;
+/* =====================================
+   GALLERY PAGE
+===================================== */
+.gallery-container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 3rem 1.5rem;
 }
 
-body {
-  min-height: 100vh;
-  background: linear-gradient(135deg, #ff9ecb, #ff6fa5);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 40px 20px;
-  overflow-x: hidden;
-}
-
-/* ===== TITLE ===== */
 .gallery-title {
-  font-size: 36px;
-  color: white;
-  margin-bottom: 40px;
   text-align: center;
-  text-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 2.5rem;
 }
 
-/* ===== GRID LAYOUT ===== */
+/* GRID */
 .gallery {
-  width: 100%;
-  max-width: 1200px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.8rem;
 }
 
-/* ===== CARD STYLE ===== */
+/* CARD */
 .photo,
 .video-box {
   background: rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(12px);
-  border-radius: 25px;
-  padding: 15px;
+  border-radius: 22px;
+  aspect-ratio: 4 / 5;  /* สัดส่วนบาลานซ์มือถือ */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  overflow: hidden;
   box-shadow: 0 10px 30px rgba(0,0,0,0.15);
   transition: 0.3s ease;
 }
 
 .photo:hover,
 .video-box:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 40px rgba(0,0,0,0.25);
-}
-.photo {
-  aspect-ratio: 4 / 5;   /* สัดส่วนคงที่ */
-  background: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 20px;
-  overflow: hidden;
-  padding: 10px;
+  transform: translateY(-6px);
 }
 
+/* IMAGE */
 .photo img {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;   /* ไม่ตัด ไม่ยืด */
+  border-radius: 16px;
+}
+
+/* VIDEO */
+.video-box video {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;   /* ไม่ตัด ไม่ยืด */
+  border-radius: 16px;
 }
 
 
-/* ===== RESPONSIVE ===== */
+/* =====================================
+   RESPONSIVE
+===================================== */
 @media (max-width: 768px) {
-  body {
-    padding: 30px 15px;
+
+  .gallery-container {
+    padding: 2rem 1rem;
+  }
+
+  .gallery {
+    gap: 1.2rem;
   }
 
   .gallery-title {
     font-size: 26px;
-  }
-
-  .gallery {
-    gap: 20px;
   }
 }
