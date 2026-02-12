@@ -1,26 +1,75 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valentine 💖</title>
-
-    <!-- ใช้ style.css เดิม -->
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valentine Lock 💖</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="login-page">
 
-    <!-- กล่องตรงกลาง -->
-    <div class="center">
-        <h1>Happy Valentine Day</h1>
+<div class="lock-card">
+    <h2>VALENTINE FOR JANJIRA</h2>
+    <p class="sub">กรอกรหัสงับ😘</p>
 
-        <p>For Janjira</p>
-
-        <!-- ปุ่มเข้าแกลเลอรี่ -->
-        <a href="gallery.html">
-            <button class="btn">Enter Here 💖</button>
-        </a>
+    <div class="dots">
+        <span></span><span></span><span></span>
+        <span></span><span></span><span></span>
     </div>
+
+    <div class="keypad">
+        <button onclick="pressKey(1)">1</button>
+        <button onclick="pressKey(2)">2</button>
+        <button onclick="pressKey(3)">3</button>
+        <button onclick="pressKey(4)">4</button>
+        <button onclick="pressKey(5)">5</button>
+        <button onclick="pressKey(6)">6</button>
+        <button onclick="pressKey(7)">7</button>
+        <button onclick="pressKey(8)">8</button>
+        <button onclick="pressKey(9)">9</button>
+        <div></div>
+        <button onclick="pressKey(0)">0</button>
+        <button onclick="removeKey()">⌫</button>
+    </div>
+
+    <button class="confirm" onclick="checkPIN()">ยืนยัน</button>
+    <p id="error"></p>
+</div>
+
+<script>
+const correctPIN = "065741";
+let inputPIN = "";
+const dots = document.querySelectorAll(".dots span");
+
+function pressKey(num) {
+    if (inputPIN.length < 6) {
+        inputPIN += num;
+        updateDots();
+    }
+}
+
+function removeKey() {
+    inputPIN = inputPIN.slice(0, -1);
+    updateDots();
+}
+
+function updateDots() {
+    dots.forEach((dot, index) => {
+        dot.classList.toggle("filled", index < inputPIN.length);
+    });
+}
+
+function checkPIN() {
+    const error = document.getElementById("error");
+    if (inputPIN === correctPIN) {
+        window.location.href = "gallery.html";
+    } else {
+        error.textContent = "รหัสไม่ถูกต้อง 💔";
+        inputPIN = "";
+        updateDots();
+    }
+}
+</script>
 
 </body>
 </html>
