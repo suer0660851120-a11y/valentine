@@ -7,142 +7,108 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <audio id="bgm" loop>
+
+<audio id="bgm" loop>
   <source src="gg.mp3" type="audio/mpeg">
 </audio>
 
 <script>
-  document.addEventListener("click", () => {
-    const music = document.getElementById("bgm");
-    music.volume = 0.5; // ปรับเสียงให้นุ่ม
-    music.play();
-  }, { once: true });
+document.addEventListener("click", () => {
+  const music = document.getElementById("bgm");
+  music.volume = 0.5;
+  music.play();
+}, { once: true });
 </script>
+
 <canvas id="heartCanvas"></canvas>
 
-  <div class="gallery-container">
-    <h1 class="gallery-title">My gallery 💘</h1>
+<div class="gallery-container">
+  <h1 class="gallery-title">My gallery 💘</h1>
 
-    <div class="gallery">
-      <!-- ใส่รูปเองภายหลัง -->
-      <div class="photo">
-        <img src="IMG_2140.JPG" alt="">
-        </div>
+  <div class="gallery">
 
-      <div class="photo">
-        <img src="IMG_2480.JPG" alt="">
-      </div>
-       
-
-      <div class="photo">
-      <img src="IMG_2542.JPG" alt="">
-     </div>
-      
-
-      <div class="photo">
-        <img src="275CBF02-B808-4E81-BF9D-39291B5859A8.jpg" alt="">
-      </div>
-            
-      <div class="photo">
-        <img src="958575E7-14CF-47EC-A5F3-263BC38689B4.jpg" alt="">
-
-      </div>
-      <div class="photo">
-         <img src="IMG_1635.JPG" alt="">
-      </div>
-
-    <div class="photo video-box">
-    <video controls preload="metadata">
-      <source src="cj0tMWxxZGhxMmUzOXB1NyZzPWpwOCZ0PWQmdT0xaXZjN3Jma2cyMDAwJmk9MWc.mp4" type="video/mp4">
-       </video>
-  </div>
-
-      <div class="photo video-box">
-    <video controls preload="metadata">
-      <source src="ucX6gbiqrnYc2Li-RtLKdwvSw77990S7OIHlhyyXgmA.mp4" type="video/mp4">
-      
-    </video>
-  </div>
-
-  <div class="photo video-box">
-    <video controls preload="metadata">
-      <source src="076E9DAC-8B13-41A1-A45D-D39BA15E6A41.mov" type="video/mp4">
-      
-    </video>
-  </div>
-
+    <div class="photo">
+      <img src="IMG_2140.JPG">
     </div>
-  </div>
 
-  <script>
- 
+    <div class="photo">
+      <img src="IMG_2480.JPG">
+    </div>
+
+    <div class="photo">
+      <img src="IMG_2542.JPG">
+    </div>
+
+    <div class="photo">
+      <img src="275CBF02-B808-4E81-BF9D-39291B5859A8.jpg">
+    </div>
+
+    <div class="photo">
+      <img src="958575E7-14CF-47EC-A5F3-263BC38689B4.jpg">
+    </div>
+
+    <div class="photo">
+      <img src="IMG_1635.JPG">
+    </div>
+
+    <!-- วิดีโอ -->
+    <div class="video-box">
+      <video controls preload="metadata">
+        <source src="video1.mp4" type="video/mp4">
+      </video>
+    </div>
+
+  </div>
+</div>
+
+<script>
 const canvas = document.getElementById("heartCanvas");
 const ctx = canvas.getContext("2d");
 
-let hearts = [];
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
 resizeCanvas();
-
 window.addEventListener("resize", resizeCanvas);
 
-function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-}
+let hearts = [];
 
 class Heart {
-    constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = canvas.height + Math.random() * 100;
-        this.size = Math.random() * 12 + 8;
-        this.speed = Math.random() * 0.6 + 0.3;
-        this.alpha = Math.random() * 0.5 + 0.4;
-        this.swing = Math.random() * 2;
-        this.color = `rgba(${255}, ${Math.random()*100+100}, ${Math.random()*150+150}, ${this.alpha})`;
-    }
-
-    draw() {
-        ctx.save();
-        ctx.translate(this.x, this.y);
-        ctx.scale(this.size / 20, this.size / 20);
-        ctx.beginPath();
-        ctx.moveTo(0, 0);
-        ctx.bezierCurveTo(-10, -10, -20, 10, 0, 20);
-        ctx.bezierCurveTo(20, 10, 10, -10, 0, 0);
-        ctx.fillStyle = this.color;
-        ctx.fill();
-        ctx.restore();
-    }
-
-    update() {
-        this.y -= this.speed;
-        this.x += Math.sin(this.y * 0.02) * this.swing;
-        if (this.y < -20) {
-            this.y = canvas.height + 20;
-            this.x = Math.random() * canvas.width;
-        }
-        this.draw();
-    }
+  constructor() {
+    this.x = Math.random() * canvas.width;
+    this.y = canvas.height + Math.random() * 100;
+    this.size = Math.random() * 12 + 8;
+    this.speed = Math.random() * 0.6 + 0.3;
+  }
+  draw() {
+    ctx.save();
+    ctx.translate(this.x, this.y);
+    ctx.scale(this.size / 20, this.size / 20);
+    ctx.beginPath();
+    ctx.moveTo(0, 0);
+    ctx.bezierCurveTo(-10, -10, -20, 10, 0, 20);
+    ctx.bezierCurveTo(20, 10, 10, -10, 0, 0);
+    ctx.fillStyle = "rgba(255,150,200,0.6)";
+    ctx.fill();
+    ctx.restore();
+  }
+  update() {
+    this.y -= this.speed;
+    if (this.y < -20) this.y = canvas.height + 20;
+    this.draw();
+  }
 }
 
-function createHearts(count = 30) {
-    for (let i = 0; i < count; i++) {
-        hearts.push(new Heart());
-    }
-}
+for (let i = 0; i < 30; i++) hearts.push(new Heart());
 
 function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    hearts.forEach(h => h.update());
-    requestAnimationFrame(animate);
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  hearts.forEach(h => h.update());
+  requestAnimationFrame(animate);
 }
-
-createHearts();
 animate();
 </script>
 
-</script>
 </body>
-
-
-
-
+</html>

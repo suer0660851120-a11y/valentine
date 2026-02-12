@@ -1,6 +1,4 @@
-/* =====================================
-   GLOBAL RESET
-===================================== */
+/* RESET */
 * {
   margin: 0;
   padding: 0;
@@ -8,34 +6,30 @@
   font-family: 'Segoe UI', sans-serif;
 }
 
-html {
-  font-size: 16px;
-}
-
 body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
   background: linear-gradient(135deg, #ffafbd, #ffc3a0);
   color: white;
 }
 
-/* =====================================
-   GALLERY PAGE
-===================================== */
-.wrapper {
+/* ===== CANVAS FIX ===== */
+#heartCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;   /* ส่งไปด้านหลัง */
+}
+
+/* ===== GALLERY PAGE ===== */
+.gallery-container {
   max-width: 900px;
   margin: 0 auto;
-  padding: 1rem 1rem 3rem;
+  padding: 1.5rem 1rem 3rem;
 }
 
 .gallery-title {
   text-align: center;
   font-size: clamp(2rem, 4vw, 3rem);
   margin-bottom: 1.5rem;
-}
-
-.section {
-  margin-bottom: 2rem;
 }
 
 .gallery {
@@ -46,136 +40,34 @@ body {
 
 /* รูป */
 .photo {
-  aspect-ratio: 1 / 1;
-  overflow: hidden;
   border-radius: 16px;
+  overflow: hidden;
   background: rgba(255,255,255,0.25);
   backdrop-filter: blur(10px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px;
   transition: 0.3s ease;
 }
-.photo:hover { transform: translateY(-6px); }
+
+.photo:hover {
+  transform: translateY(-5px);
+}
 
 .photo img {
   width: 100%;
   height: auto;
-  border-radius: 14px;
-  object-fit: contain;
+  display: block;
+  object-fit: cover;
 }
 
 /* วิดีโอ */
-.video-box {
-  width: 100%;
-  border-radius: 16px;
-  overflow: hidden;
-  background: rgba(255,255,255,0.25);
-  backdrop-filter: blur(10px);
-}
 .video-box video {
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 14px;
-  object-fit: contain;
 }
 
-/* =====================================
-   INTRO PAGE
-===================================== */
-.intro-page {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.intro { text-align: center; }
-.intro h1 {
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  margin-bottom: 20px;
-}
-.btn {
-  padding: 12px 30px;
-  background: #fff;
-  color: #ff4d88;
-  text-decoration: none;
-  border-radius: 30px;
-  font-weight: bold;
-  transition: 0.3s;
-}
-.btn:hover { transform: scale(1.1); }
-
-/* =====================================
-   LOGIN PAGE
-===================================== */
-.login-page {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.lock-card {
-  background: rgba(255,255,255,0.25);
-  backdrop-filter: blur(12px);
-  border-radius: 30px;
-  padding: 30px 25px;
-  width: 100%;
-  max-width: 360px;
-  text-align: center;
-  color: white;
-  box-shadow: 0 15px 40px rgba(255,105,180,0.4);
-}
-.sub { margin-bottom: 20px; }
-.dots {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 25px;
-}
-.dots span {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.4);
-}
-.dots span.filled { background: white; }
-.keypad {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
-  margin-bottom: 25px;
-}
-.keypad button {
-  padding: 18px 0;
-  font-size: 20px;
-  border-radius: 15px;
-  border: none;
-  background: rgba(255,255,255,0.9);
-  color: #ff4d88;
-  cursor: pointer;
-}
-.confirm {
-  width: 100%;
-  padding: 14px;
-  border-radius: 20px;
-  border: none;
-  background: linear-gradient(135deg, #ff4d88, #ff85a2);
-  color: white;
-  font-size: 18px;
-  cursor: pointer;
-}
-#error {
-  margin-top: 10px;
-  color: #fff;
-}
-
-/* =====================================
-   RESPONSIVE
-===================================== */
+/* Responsive */
 @media (max-width: 768px) {
-  .wrapper { padding: 1rem; }
-  .gallery { gap: 0.8rem; }
-  .gallery-title { font-size: 1.75rem; }
+  .gallery-container {
+    padding: 1rem;
+  }
 }
